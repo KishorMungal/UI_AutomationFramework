@@ -11,9 +11,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {
-	public static WebDriver driver;
+	public static  WebDriver driver;
 
-	public void SetupFunction() throws IOException {
+	public static void SetupFunction() throws IOException {
 		String browser = PropertiesOperations.getproperties("browserValue");
 		String url = PropertiesOperations.getproperties("AppURL");
 
@@ -38,5 +38,5 @@ public class TestBase {
 	public void TeardownFunction() {
 		driver.close();
 	}
-
+ 
 }
