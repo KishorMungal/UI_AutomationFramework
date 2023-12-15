@@ -13,7 +13,7 @@ public class PropertiesOperations {
 	public static String getproperties(String key) throws IOException {
 		try {
 			file = new FileInputStream(
-					System.getProperty("user.dir") + "/UI_AutomationFramework/src/test/resources/config.Properties");
+					System.getProperty("user.dir")+"/src/test/resources/config.Properties");
 			prop = new Properties();
 			prop.load(file);
 
