@@ -10,8 +10,9 @@ import org.testng.Assert;
 
 import com.testBase.TestBase;
 import com.utilities.CommonFunctions;
+import com.utilities.ObjectUtilities;
 
-public class HomePage extends TestBase {
+public class HomePage extends ObjectUtilities {
 	public CommonFunctions cm;
 
 	@FindBy(css = pageConstant.Automobiles)
@@ -27,26 +28,27 @@ public class HomePage extends TestBase {
 	public WebElement camperLink;
 
 	@FindBy(xpath = pageConstant.homepageHeading)
-	WebElement Homepage_Heading;
+	public WebElement Homepage_Heading;
 
 	@FindBy(xpath = pageConstant.productListOnHomepage)
 	List<WebElement> productList;
 
 	public HomePage() throws IOException {
-		cm = new CommonFunctions();
 		PageFactory.initElements(driver, this);
+		cm = new CommonFunctions();
 	}
 
 	public void VerifyHomepageHeader() {
-		// cm.waitforElementToBeDisplayed(Homepage_Heading);
+		//cm.waitforElementToBeDisplayed(Homepage_Heading);
 		cm.ThreadSleepTime(3000);
 		System.out.println(Homepage_Heading.getText());
 		Assert.assertTrue(cm.isElementDisplay(Homepage_Heading), "homepage heading is not displayed");
 	}
 
-	public void CheckHomepageproducts() {
+	public String CheckHomepageproducts() {
 		String products_Name = cm.ListOFAvailableElement(productList);
-		System.out.println(products_Name);
+		//System.out.println(products_Name);
+		return products_Name;
 	}
 
 }

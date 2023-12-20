@@ -1,12 +1,15 @@
 package com.utilities;
 
-import java.time.Duration;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -42,7 +45,6 @@ public class CommonFunctions extends TestBase {
 
 	public void waitforElementToBeDisplayed(WebElement element) {
 		try {
-
 			wait.until(ExpectedConditions.visibilityOf(element));
 
 		} catch (Exception e) {
@@ -76,6 +78,18 @@ public class CommonFunctions extends TestBase {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public static String TakeSnapshot(WebDriver driver,String snapName) {
+		File Snap= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		String SnapPath = System.getProperty("user.dir") + "/FailedTestScreeshot/" + snapName + ".png";
+		File fileinput = new File("SnapPath");
+		try {
+			FileUtils.copyFile(Snap, fileinput);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return SnapPath;
 	}
 	
 }
