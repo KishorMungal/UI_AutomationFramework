@@ -50,11 +50,11 @@ public class HomePage extends ObjectUtilities {
 		Assert.assertTrue(cm.isElementDisplay(Homepage_Heading), "homepage heading is not displayed");
 	}
 
-	public void EnterIntoAutomobile() {
+	public void ElementsAvailableOnHomepage() {
 		for (WebElement ele1 : productList) {
 			cm.ThreadSleepTime(3000);
 			System.out.println("Insurance Products available on homepage  " + "/" + ele1.getText());
-			cm.ThreadSleepTime(2000);
+			
 //			if (ele1.getText().equals("Automobile")) {
 //				cm.ClickOnElement(ele1);
 //			}

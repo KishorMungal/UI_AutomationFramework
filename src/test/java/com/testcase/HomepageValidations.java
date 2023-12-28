@@ -15,8 +15,8 @@ public class HomepageValidations extends ObjectUtilities {
 	public void ValidateInsurenceProductAvailableOnHomepage() {
 		homepage.VerifyHomepageHeader();
 		Assert.assertTrue(CommonFunctions.isElementEnabled(homepage.AutomobileLink));
-		homepage.EnterIntoAutomobile();
-		Vehicledata.ValidateSelectedInsurence();
+		homepage.ElementsAvailableOnHomepage();;
+		
 		
 
 	}

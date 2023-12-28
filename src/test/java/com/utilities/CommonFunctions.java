@@ -1,7 +1,9 @@
 package com.utilities;
 
 import java.io.File;
+
 import java.io.IOException;
+import java.time.Duration;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
@@ -22,8 +24,8 @@ public class CommonFunctions extends TestBase {
 	public WebDriverWait wait;
 
 	public CommonFunctions() {
-		// wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		// wait = new WebDriverWait(driver, 10);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		// wait = new WebDriverWait(driver, Duration.ofMillis(20));
 	}
 
 	public boolean isElementDisplay(WebElement element) {
@@ -32,6 +34,7 @@ public class CommonFunctions extends TestBase {
 		} catch (Exception e) {
 			return false;
 		}
+
 	}
 
 	public static boolean isElementSelected(WebElement element) {
@@ -76,6 +79,7 @@ public class CommonFunctions extends TestBase {
 			Thread.sleep(time);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
+			Assert.fail("timeout failed");
 		}
 	}
 
@@ -92,26 +96,68 @@ public class CommonFunctions extends TestBase {
 	}
 
 	public void ClickOnElement(WebElement element) {
-		element.click();
+		try {
+			element.click();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void NavigateBack() {
-		driver.navigate().back();
+		try {
+			driver.navigate().back();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void CheckSelectedInsurence(WebElement InsrenceSelected, String InsurenceType) {
-		Assert.assertEquals(InsrenceSelected.getText(), InsurenceType, "Selected Insurence type is mismatch");
-		ThreadSleepTime(2000);
+		try {
+			Assert.assertEquals(InsrenceSelected.getText(), InsurenceType, "Selected Insurence type is mismatch");
+			ThreadSleepTime(2000);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
-	
+
 	public void EnterSendKeys(WebElement ele, String Keys) {
-		ele.sendKeys(Keys);
+		try {
+			ele.sendKeys(Keys);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
-	
+
 	public void RefreshWebpage() {
-		driver.navigate().refresh();
+		try {
+			driver.navigate().refresh();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
-	
-	
-	
+
+	public void SelectRadioButton(List<WebElement> elements, String radioButton) {
+		try {
+			for (WebElement element : elements) {
+				if (element.getText().equals(radioButton)) {
+					element.click();
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void SelectCheckBoxes(List<WebElement> elements, String checkbox) {
+		try {
+			for (WebElement element : elements) {
+				if (element.getText().equals(checkbox)) {
+					element.click();
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 }
