@@ -8,8 +8,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import com.utilities.CommonFunctions;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TestBase {

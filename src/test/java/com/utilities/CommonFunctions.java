@@ -19,12 +19,11 @@ import com.testBase.TestBase;
 
 public class CommonFunctions extends TestBase {
 
-	public WebDriver driver;
 	public WebDriverWait wait;
 
 	public CommonFunctions() {
-	//wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-	//wait = new WebDriverWait(driver, 10);
+		// wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		// wait = new WebDriverWait(driver, 10);
 	}
 
 	public boolean isElementDisplay(WebElement element) {
@@ -52,26 +51,26 @@ public class CommonFunctions extends TestBase {
 			Assert.fail("Timeout - element not detected even after 180 Seconds - " + element, e.getCause());
 		}
 	}
-	
-	public  void selectDropDown(String value, By element) {
+
+	public void selectDropDown(String value, WebElement element) {
 
 		try {
-			Select select = new Select(driver.findElement(element));
+			Select select = new Select(element);
 			select.selectByVisibleText(value);
 		} catch (Exception e) {
 			e.printStackTrace();
-			Assert.fail("Issue while selecting an option in the dropdown - " +element, e.getCause());
+			Assert.fail("Issue while selecting an option in the dropdown - " + element, e.getCause());
 		}
 	}
-	
+
 	public String ListOFAvailableElement(List<WebElement> elements) {
-		String productType=" ";
-		for(WebElement element : elements) {
+		String productType = " ";
+		for (WebElement element : elements) {
 			productType = element.getText();
 		}
 		return productType;
 	}
-	
+
 	public void ThreadSleepTime(int time) {
 		try {
 			Thread.sleep(time);
@@ -79,11 +78,11 @@ public class CommonFunctions extends TestBase {
 			e.printStackTrace();
 		}
 	}
-	
-	public static String TakeSnapshot(WebDriver driver,String snapName) {
-		File Snap= ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		String SnapPath = System.getProperty("user.dir") + "/FailedTestScreeshot/" + snapName + ".png";
-		File fileinput = new File("SnapPath");
+
+	public static String TakeSnapshot(WebDriver driver, String snapName) {
+		File Snap = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		String SnapPath = System.getProperty("user.dir") + "/FailedTestScreenshot/" + snapName + ".png";
+		File fileinput = new File(SnapPath);
 		try {
 			FileUtils.copyFile(Snap, fileinput);
 		} catch (IOException e) {
@@ -91,5 +90,28 @@ public class CommonFunctions extends TestBase {
 		}
 		return SnapPath;
 	}
+
+	public void ClickOnElement(WebElement element) {
+		element.click();
+	}
+
+	public void NavigateBack() {
+		driver.navigate().back();
+	}
+
+	public void CheckSelectedInsurence(WebElement InsrenceSelected, String InsurenceType) {
+		Assert.assertEquals(InsrenceSelected.getText(), InsurenceType, "Selected Insurence type is mismatch");
+		ThreadSleepTime(2000);
+	}
+	
+	public void EnterSendKeys(WebElement ele, String Keys) {
+		ele.sendKeys(Keys);
+	}
+	
+	public void RefreshWebpage() {
+		driver.navigate().refresh();
+	}
+	
+	
 	
 }
