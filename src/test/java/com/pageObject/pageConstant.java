@@ -29,4 +29,22 @@ public static final String ListPrice="//input[@id='listprice']";
 public static final String LicenanceplateNo ="//input[@id='licenseplatenumber']";
 public static final String AnnualMileage ="//input[@id='annualmileage']";
 public static final String NextButton ="//button[@id='nextenterinsurantdata']";
+
+/*
+ * Enter Insurance Data page constant
+ */
+public static final	String firstname ="input[id='firstname']";
+public static final	String lastname ="input#lastname";
+public static final	String calenderdateonInsurencepage ="//input[@id='birthdate']";
+public static final	String CalenderErrorMessage = "//button[@class='ui-datepicker-trigger']/following-sibling::*[contains(text(),'You must be between 18 and 70 years of age')]";
+public static final String GenderLabel ="//label[text()='Gender']";
+public static final	String GenderRadioButtons = " //input[@name=\"Gender\"]/parent::label[@class='ideal-radiocheck-label']";
+public static final	String CountryDropdown ="//select[@id='country']";
+public static final	String ZipCode = "//input[contains(@id,'zipcode')]";
+public static final	String city = "//input[@name='City']";
+public static final	String OccupationDropdown ="//select[contains(@name,'Occupation')]";
+public static final String HobbiesLabel ="//label[text()='Hobbies']";
+public static final	String HobbiesCheckboxes ="//input[@name='Hobbies']/parent::label[@class='ideal-radiocheck-label']";
+public static final	String NextButtononInsurancepage ="//button[@id='nextenterproductdata']";
+public static final	String PrevButtononInsurancepage ="//button[@id='preventervehicledata']";
 }

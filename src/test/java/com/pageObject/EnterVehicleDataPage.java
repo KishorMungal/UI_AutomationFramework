@@ -52,39 +52,53 @@ public class EnterVehicleDataPage extends ObjectUtilities {
 	}
 
 	public void ValidateSelectedInsurence() {
+		cm.waitforElementToBeDisplayed(InsurenceSelected);
 		cm.CheckSelectedInsurence(InsurenceSelected, "Automobile Insurance");
 	}
 
 	public void SelectMakeType() {
+		cm.waitforElementToBeDisplayed(InsurenceSelected);
 		cm.selectDropDown("Mercedes Benz", Make_Dropdown);
 	}
 
 	public void Enter_enginePerformance() {
+		cm.waitforElementToBeDisplayed(InsurenceSelected);
 		cm.EnterSendKeys(Engine_Performance, "500");
 	}
 
 	public void Enter_DateOfmanufacture() {
+		cm.waitforElementToBeDisplayed(InsurenceSelected);
 		cm.EnterSendKeys(CalenderDate, "10/06/2022");
 	}
 
 	public void SelectNumberOfSeats() {
+		cm.waitforElementToBeDisplayed(InsurenceSelected);
 		cm.selectDropDown("4", SelectedSeatNo_dropdown);
 	}
 
 	public void SelectFuelType() {
+		cm.waitforElementToBeDisplayed(InsurenceSelected);
 		cm.selectDropDown("Diesel", FuelType_dropdown);
 	}
 
 	public void Enter_ListPrice() {
+		cm.waitforElementToBeDisplayed(InsurenceSelected);
 		cm.EnterSendKeys(List_Price, "70000");
 	}
 
 	public void Enter_LicenceNumberPlate() {
+		cm.waitforElementToBeDisplayed(InsurenceSelected);
 		cm.EnterSendKeys(Licenceplate_number, "MH-26 K-50");
 	}
 
 	public void Enter_AnnualMileage() {
+		cm.waitforElementToBeDisplayed(InsurenceSelected);
 		cm.EnterSendKeys(Enter_AnnualMileage, "25000");
+	}
+
+	public void clickonNextButton() {
+		cm.ClickOnElement(NextButton_element);
+		cm.ThreadSleepTime(2000);
 	}
 
 }
