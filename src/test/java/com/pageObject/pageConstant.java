@@ -47,4 +47,30 @@ public static final String HobbiesLabel ="//label[text()='Hobbies']";
 public static final	String HobbiesCheckboxes ="//input[@name='Hobbies']/parent::label[@class='ideal-radiocheck-label']";
 public static final	String NextButtononInsurancepage ="//button[@id='nextenterproductdata']";
 public static final	String PrevButtononInsurancepage ="//button[@id='preventervehicledata']";
+
+/*
+ * Enter product data page constant
+ */
+public static final String StartDate ="//input[@id='startdate']";
+public static final String Insurancesumdropdown ="select[name = 'Insurance Sum']";
+public static final String MeritRatingdropdown = "select#meritrating";
+public static final String DamageInsurancedropdown ="select#damageinsurance";
+public static final String OptionalProductlabel ="//label[text()='Optional Products']";
+public static final String OptionalCheckbox = "//input[@name='Optional Products[]']";
+public static final String CourtesyCardropdown ="//select[@id='courtesycar']";
+public static final String NextButtonProductpage = "//button[@id='nextselectpriceoption']";
+public static final String PrevButtonProductpage ="//button[@id='preventerinsurancedata']";
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -118,5 +118,6 @@ public class EnterInsuranceDatapage extends ObjectUtilities {
  public void clickOnNextButton() {
 	 cm.waitforElementToBeDisplayed(ClickonNextButtononInsurancepage);
 	 cm.ClickOnElement(ClickonNextButtononInsurancepage);
+	 cm.ThreadSleepTime(2000);
  }
 }
